@@ -1,0 +1,13 @@
+#name {
+  color: violet;
+}
+.warna-tomato {
+  color: tomato;
+}
+.gede {
+  font-size: 50px;
+}
+h3 {
+  color: rgb(0, 30, 128);
+}
+/* important > inline > id > class > tag */
