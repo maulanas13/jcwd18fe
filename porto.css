@@ -7,10 +7,11 @@
 :root {
   --primary-color: #f1b505;
   --text-color: #1d1d1d;
+  --text-secondary: #adadad;
 }
 
 .main-container {
-  padding: 0px 5%;
+  padding: 0px 9%;
 }
 
 /* header start */
@@ -78,8 +79,75 @@
 
 /* header Finish */
 
+/* jumbotron1 */
+.jumbotron1 {
+  /* background-color: burlywood; */
+  display: flex;
+  margin-top: 4%;
+}
+.jumbotron1 > div {
+  flex: 1;
+  padding: 1.5% 0px 1.5% 1.5%;
+}
+
+/* .jumbotron1 > div:nth-child(2) {
+  background-color: yellow;
+} */
+.hurufGede {
+  font-size: 3.5em;
+  font-weight: 600;
+  color: var(--text-color);
+  /* letter-spacing: 3px; */
+  margin: 5% 0px;
+}
+
+.gambar1 {
+  height: 60vh;
+  width: 100%;
+}
+.jumbotron1 p {
+  color: var(--text-secondary);
+  font-size: 1.2em;
+  width: 73%;
+  font-weight: 500;
+}
+
+.menu2 {
+  margin-top: 10%;
+}
+.menu2 > .input-text {
+  border-color: transparent;
+  color: var(--text-secondary);
+  border-radius: 10px;
+  /* font-size: 1em; */
+  width: 25%;
+  margin-right: 7%;
+  padding: 1.5%;
+  box-shadow: 0px 9px 17px 0px rgba(117, 117, 117, 0.39);
+  -webkit-box-shadow: 0px 9px 17px 0px rgba(117, 117, 117, 0.39);
+  -moz-box-shadow: 0px 9px 17px 0px rgba(117, 117, 117, 0.39);
+}
+.menu2 > .input-text:focus {
+  outline: transparent;
+}
+.menu2 > .input-text::placeholder {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+.menu2 > button {
+  padding: 3%;
+  text-align: center;
+  width: 25%;
+  border-radius: 40px;
+  border-color: transparent;
+  background-color: var(--primary-color);
+  font-weight: 800;
+}
+/* jumbotron1 */
+
 /* for tablet */
 @media only screen and (max-width: 768px) {
+  /* Header */
   .menu {
     width: 70%;
   }
@@ -90,16 +158,69 @@
     padding: 0px 3%;
   }
   .signIn {
-    padding: 3% 1%;
+    padding: 3% 0px;
+    font-size: 1em;
+    width: 22%;
   }
+  /* Header */
+  /* jumbotro1 */
+  .hurufGede {
+    font-size: 2.6em;
+  }
+  .jumbotron1 p {
+    color: var(--text-secondary);
+    font-size: 0.9em;
+    width: 100%;
+    font-weight: 500;
+  }
+  .menu2 > .input-text {
+    font-size: 0.8em;
+    width: 90%;
+    display: block;
+    height: 4vh;
+    border-radius: 200px;
+  }
+  .menu2 > .input-text::placeholder {
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-align: center;
+  }
+  .menu2 > button {
+    display: block;
+    margin-top: 5%;
+    padding: 3%;
+    width: 95%;
+  }
+  .menu2 {
+    margin-top: 5%;
+  }
+  .jumbotron1 > div:nth-child(2) {
+    /* background-color: yellow; */
+    margin-top: -10% !important;
+  }
+  /* jumbotro1 */
 }
 
 /* for mobile */
 @media only screen and (max-width: 600px) {
+  /* Header */
   .menu-bars {
     display: block;
   }
   .menu {
     display: none;
   }
+  /* Header */
+  /* jumbotron1 */
+  .jumbotron1 {
+    flex-direction: column;
+  }
+  .jumbotron1 > div:nth-child(2) {
+    order: -1;
+    margin-top: -10% !important;
+  }
+  .gambar1 {
+    height: 30vh;
+  }
+  /* jumbotron1 */
 }
