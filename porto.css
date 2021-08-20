@@ -1,0 +1,105 @@
+* {
+  font-family: "Lato", sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+
+:root {
+  --primary-color: #f1b505;
+  --text-color: #1d1d1d;
+}
+
+.main-container {
+  padding: 0px 5%;
+}
+
+/* header start */
+
+.header {
+  /* background-color: burlywood; */
+  display: flex;
+  color: var(--text-color);
+  justify-content: space-between;
+  padding: 2% 0px;
+}
+
+.bitco {
+  /* background-color: yellow; */
+  margin: 1.2%;
+  font-weight: 800;
+  font-size: 1.3em;
+}
+.menu-bars {
+  margin: 1.3%;
+  font-size: 1.3em;
+  display: none;
+}
+
+.menu {
+  /* background-color: yellowgreen; */
+  display: flex;
+  width: 50%;
+}
+
+.menu > div:first-child {
+  /* background-color: antiquewhite; */
+  margin-right: auto;
+  /* font-size: 1.1em; */
+  font-weight: 600;
+  display: flex;
+  padding: 3%;
+  width: 60%;
+  justify-content: space-between;
+}
+.menu > div > div:hover {
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.signIn {
+  /* background-color: aquamarine; */
+  padding: 3% 1.5%;
+  width: 15%;
+  text-transform: capitalize;
+  /* font-size: 1.1em; */
+  font-weight: 600;
+  border-radius: 100px;
+  border: 2px solid var(--primary-color);
+  text-align: center;
+  transition: 300ms;
+}
+
+.signIn:hover {
+  cursor: pointer;
+  color: var(--primary-color);
+  opacity: 0.6;
+}
+
+/* header Finish */
+
+/* for tablet */
+@media only screen and (max-width: 768px) {
+  .menu {
+    width: 70%;
+  }
+  .menu > div:first-child {
+    margin-left: 8%;
+  }
+  .main-container {
+    padding: 0px 3%;
+  }
+  .signIn {
+    padding: 3% 1%;
+  }
+}
+
+/* for mobile */
+@media only screen and (max-width: 600px) {
+  .menu-bars {
+    display: block;
+  }
+  .menu {
+    display: none;
+  }
+}
