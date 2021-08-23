@@ -143,6 +143,13 @@
   background-color: var(--primary-color);
   font-weight: 800;
 }
+a {
+  text-decoration: none;
+  color: initial;
+}
+a > div:hover {
+  color: #f1b505;
+}
 /* jumbotron1 */
 
 /* for tablet */

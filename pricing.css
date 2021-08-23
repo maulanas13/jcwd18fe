@@ -1,0 +1,267 @@
+* {
+  font-family: "Lato", sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+
+:root {
+  --primary-color: #f1b505;
+  --text-color: #1d1d1d;
+  --text-secondary: #adadad;
+}
+
+.main-container {
+  padding: 0px 9%;
+}
+
+/* header start */
+
+.header {
+  display: flex;
+  color: var(--text-color);
+  justify-content: space-between;
+  padding: 2% 0px;
+}
+
+.bitco {
+  margin: 1.2%;
+  font-weight: 800;
+  font-size: 1.3em;
+}
+.menu-bars {
+  margin: 1.3%;
+  font-size: 1.3em;
+  display: none;
+}
+
+.menu {
+  display: flex;
+  width: 50%;
+}
+
+.menu > div:first-child {
+  margin-right: auto;
+  font-weight: 600;
+  display: flex;
+  padding: 3%;
+  width: 60%;
+  justify-content: space-between;
+}
+.menu > div > div:hover {
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.signIn {
+  padding: 3% 1.5%;
+  width: 15%;
+  text-transform: capitalize;
+
+  font-weight: 600;
+  border-radius: 100px;
+  border: 2px solid var(--primary-color);
+  text-align: center;
+  transition: 300ms;
+}
+
+.signIn:hover {
+  cursor: pointer;
+  color: var(--primary-color);
+  opacity: 0.6;
+}
+
+/* header Finish */
+
+/* jumbotron1 */
+.jumbotron1 {
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  align-items: center;
+  padding-top: 2%;
+}
+.jumbotron1 > h1 {
+  font-size: 3.5em;
+  width: 40%;
+  text-align: center;
+  line-height: 1.2;
+  color: var(--primary-color);
+  margin-bottom: 2%;
+}
+
+.jumbotron1 > p:nth-child(2) {
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+.jumbotron1 > .toggle {
+  margin-top: 2%;
+  background-color: #edeffd;
+  display: flex;
+  width: 20%;
+  padding: 0.15%;
+  border-radius: 30px;
+}
+.jumbotron1 > .save {
+  background-color: rgba(255, 255, 0, 0.5);
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 0.8em;
+  margin-top: 5%;
+  margin-bottom: 2%;
+  margin-left: 7%;
+  padding: 1.5vh 1%;
+  border-radius: 30px;
+}
+@keyframes geser {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+.pindah {
+  animation: geser 1s;
+  transform: translateX(100%);
+}
+.jumbotron1 .yearly {
+  background-color: white;
+  color: var(--primary-color);
+  border-radius: 30px;
+  box-shadow: 0px 9px 17px 0px rgba(117, 117, 117, 0.39);
+  -webkit-box-shadow: 0px 9px 17px 0px rgba(117, 117, 117, 0.39);
+  -moz-box-shadow: 0px 9px 17px 0px rgba(117, 117, 117, 0.39);
+}
+
+/* .jumbotron1 .monthly {
+} */
+
+.shape {
+  width: 50%;
+  padding: 2.5vh 0px;
+  text-align: center;
+  font-size: 0.8em;
+  font-weight: 700;
+  color: #9197dd;
+}
+
+.jumbotron1 > p:last-child {
+  margin-top: 2%;
+  font-weight: 700;
+  font-size: 0.8em;
+  color: #9197dd;
+}
+/* jumbotron1 */
+
+/* jumbotron2 */
+.jumbotron2 {
+  display: flex;
+  justify-content: center;
+  padding: 0px 10%;
+  height: 52vh;
+  margin-bottom: 10%;
+}
+.jumbotron2 > div {
+  width: 33.3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.margin-atas {
+  margin-top: 20%;
+}
+.margin-atas2 {
+  margin-top: 12%;
+}
+.warna {
+  color: var(--primary-color);
+}
+.warna-secondary {
+  color: var(--text-secondary);
+}
+.price {
+  font-size: 3.5em;
+  font-weight: bold;
+}
+.text-top {
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 1.5em;
+}
+
+.bg-tengah {
+  background-color: #3eb375;
+  background-image: linear-gradient(45deg, #246140 0%, #fffb7d 100%);
+}
+
+.text-middle {
+  margin-top: 8%;
+  color: var(--text-secondary);
+}
+.warna-text {
+  color: white;
+}
+
+.getStarted {
+  padding: 5% 4%;
+  background-color: #f1b60541;
+  margin-top: 10%;
+  border-radius: 30px;
+  width: 30%;
+  text-align: center;
+  color: var(--primary-color);
+  box-shadow: 0px 9px 17px 0px rgba(117, 117, 117, 0.39);
+  -webkit-box-shadow: 0px 9px 17px 0px rgba(117, 117, 117, 0.39);
+  -moz-box-shadow: 0px 9px 17px 0px rgba(117, 117, 117, 0.39);
+}
+
+.getwarna {
+  background-color: #f1b505;
+  color: white;
+  box-shadow: none;
+}
+a {
+  text-decoration: none;
+  color: initial;
+}
+/* jumbotron2 */
+
+/* for tablet */
+@media only screen and (max-width: 768px) {
+  /* Header */
+  .menu {
+    width: 70%;
+  }
+  .menu > div:first-child {
+    margin-left: 8%;
+  }
+  .main-container {
+    padding: 0px 3%;
+  }
+  .signIn {
+    padding: 3% 0px;
+    font-size: 1em;
+    width: 22%;
+  }
+  /* Header */
+  /* jumbotron1 */
+
+  /* jumbotron1 */
+}
+
+/* for mobile */
+@media only screen and (max-width: 600px) {
+  /* Header */
+  .menu-bars {
+    display: block;
+  }
+  .menu {
+    display: none;
+  }
+  /* Header */
+  /* jumbotron1 */
+
+  /* jumbotron1 */
+}
