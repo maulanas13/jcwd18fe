@@ -18,10 +18,16 @@
 
 .header {
   /* background-color: burlywood; */
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  /* z-index: 99; */
+  background-color: white;
   display: flex;
   color: var(--text-color);
   justify-content: space-between;
-  padding: 2% 0px;
+  padding: 1% 9%;
 }
 
 .bitco {
@@ -83,7 +89,7 @@
 .jumbotron1 {
   /* background-color: burlywood; */
   display: flex;
-  margin-top: 4%;
+  margin-top: 8%;
 }
 .jumbotron1 > div {
   flex: 1;
