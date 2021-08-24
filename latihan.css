@@ -6,14 +6,22 @@
     rgba(154, 147, 166, 1) 99%
   ) !important;
 }
+.lebar {
+  width: 70% !important;
+}
 
-@media (min-width: 576px) {
+ul {
+  list-style: none;
+}
+
+.warna {
+  color: rgb(187, 184, 184);
+}
+@media only screen and (max-width: 576px) {
   .lebar {
     width: 100% !important;
   }
-}
-@media (min-width: 768px) {
-  .lebar {
-    width: 70% !important;
+  .lebartombol {
+    width: 100% !important;
   }
 }
