@@ -1,0 +1,19 @@
+.btn-primary {
+  background: rgb(103, 103, 242) !important;
+  background: linear-gradient(
+    340deg,
+    rgba(103, 103, 242, 1) 47%,
+    rgba(154, 147, 166, 1) 99%
+  ) !important;
+}
+
+@media (min-width: 576px) {
+  .lebar {
+    width: 100% !important;
+  }
+}
+@media (min-width: 768px) {
+  .lebar {
+    width: 70% !important;
+  }
+}
