@@ -14,13 +14,13 @@ class App extends Component {
   // trigger didalam fase updating : setState , newProps,forceUpdate() (updating)
   // componentWillUpdate > render > componentdidUpdate (updating)
 
-  renderKotak = this.state.data.map((val) => {
-    if (val % 2 === 1) {
-      return <Kotak1 bebas={val} />;
-    } else {
-      return <Kotak bebas={val} />;
-    }
-  });
+  // renderKotak = this.state.data.map((val) => {
+  //   if (val % 2 === 1) {
+  //     return <Kotak1 bebas={val} />;
+  //   } else {
+  //     return <Kotak bebas={val} />;
+  //   }
+  // });
 
   getDataFromChild = (dataFromChild) => {
     alert(dataFromChild);
