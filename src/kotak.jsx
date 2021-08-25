@@ -25,15 +25,29 @@ export default class Kotak extends Component {
       let angka1 = this.state.angka + angkaTambah;
       this.setState({ angka: angka1 });
     };
-  
-    render() {
     
-      return (
-        <div style={{ backgroundColor: "burlywood" }}>
-          <h1>ini hahaha {this.state.angka}</h1>
-          <button onClick={() =>this.onTambahClick(2)}>+ </button>
-        </div>
-      );
+
+    onGetDataClick = ()=>{
+        if(this.props.getDataFromChild){
+            this.props.getDataFromChild(this.state.angka)
+        }else{
+            alert('no function')
+        }
+    }
+
+    render() {
+
+        return (
+            <>
+                <div style={{ backgroundColor: this.props.warna ||  "burlywood" }}>
+                    <h1>ini kotak ke-{this.props.bebas}</h1>
+                    <button onClick={this.onGetDataClick}>
+                        kriim data to parent
+                    </button>
+                </div>
+                {this.props.children}
+            </>
+        );
     }
 }
 

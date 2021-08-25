@@ -1,10 +1,10 @@
 import React from "react";
 
 
-const Kotak1 = () => {
+const Kotak1 = (props) => {
   return (
     <div style={{ backgroundColor: "salmon" }}>
-      <h1>ini Kotak2</h1>
+      <h1>ini Kotak {props.bebas}</h1>
     </div>
   );
 };
