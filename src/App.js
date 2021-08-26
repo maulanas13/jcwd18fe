@@ -7,7 +7,7 @@ class App extends Component {
     todo: [
       {
         tanggal: "2021-08-25",
-        jam: "19.00",
+        jam: "19:00",
         kegiatan: "belajar",
         tempat: "rumah",
         waktuKegiatan: 2,
@@ -16,7 +16,7 @@ class App extends Component {
       },
       {
         tanggal: "2021-08-26",
-        jam: "10.00",
+        jam: "10:00",
         kegiatan: "kondangan",
         tempat: "di luar",
         waktuKegiatan: 3,
@@ -25,7 +25,7 @@ class App extends Component {
       },
       {
         tanggal: "2021-08-26",
-        jam: "10.00",
+        jam: "10:00",
         kegiatan: "kondangan",
         tempat: "di luar",
         waktuKegiatan: 3,
@@ -34,7 +34,7 @@ class App extends Component {
       },
       {
         tanggal: "2021-08-26",
-        jam: "10.00",
+        jam: "10:00",
         kegiatan: "kondangan",
         tempat: "di luar",
         waktuKegiatan: 3,
