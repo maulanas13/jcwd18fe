@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React ,{Component} from 'react';
 
 
 export default class Kotak extends Component {
@@ -22,14 +22,14 @@ export default class Kotak extends Component {
     // }
 
     onTambahClick = (angkaTambah) => {
-      let angka1 = this.state.angka + angkaTambah;
+      let angka1 = this.state.angka + angkaTambah; 
       this.setState({ angka: angka1 });
     };
     
 
     onGetDataClick = ()=>{
-        if(this.props.getDataFromChild){
-            this.props.getDataFromChild(this.state.angka)
+        if(this.props.getDataFromChilddariKotak){
+            this.props.getDataFromChilddariKotak(5)
         }else{
             alert('no function')
         }
