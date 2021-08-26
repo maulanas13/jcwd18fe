@@ -23,6 +23,24 @@ class App extends Component {
         gambar:
           "http://assets.kompasiana.com/items/album/2020/01/15/img20181224103046-5e1eca58d541df1b973306f3.jpg?t=o&v=770",
       },
+      {
+        tanggal: "2021-08-26",
+        jam: "10.00",
+        kegiatan: "kondangan",
+        tempat: "di luar",
+        waktuKegiatan: 3,
+        gambar:
+          "http://assets.kompasiana.com/items/album/2020/01/15/img20181224103046-5e1eca58d541df1b973306f3.jpg?t=o&v=770",
+      },
+      {
+        tanggal: "2021-08-26",
+        jam: "10.00",
+        kegiatan: "kondangan",
+        tempat: "di luar",
+        waktuKegiatan: 3,
+        gambar:
+          "http://assets.kompasiana.com/items/album/2020/01/15/img20181224103046-5e1eca58d541df1b973306f3.jpg?t=o&v=770",
+      },
     ],
     modalOpen: false,
     modalDel: false,
@@ -261,7 +279,7 @@ class App extends Component {
         >
           Add Todo
         </button>
-        <Table className="mt-2" striped>
+        {/* <Table className="mt-2" striped>
           <thead>
             <tr>
               <th>No</th>
@@ -274,8 +292,8 @@ class App extends Component {
               <th>Action</th>
             </tr>
           </thead>
-          <tbody>{this.renderKegiatan()}</tbody>
-        </Table>
+          <tbody>{this.renderKegiatan()}</tbody> </Table> */}
+        <div className="row">{this.renderKegiatan()}</div>
       </div>
     );
   }
