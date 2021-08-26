@@ -7,7 +7,7 @@ class App extends Component {
     todo: [
       {
         tanggal: "2021-08-25",
-        jam: "19.00",
+        jam: "19:00",
         kegiatan: "belajar",
         tempat: "rumah",
         waktuKegiatan: 2,
@@ -16,7 +16,7 @@ class App extends Component {
       },
       {
         tanggal: "2021-08-26",
-        jam: "10.00",
+        jam: "10:00",
         kegiatan: "kondangan",
         tempat: "di luar",
         waktuKegiatan: 3,
@@ -28,6 +28,16 @@ class App extends Component {
     modalDel: false,
     indexDel: -1,
     dataAdd: {
+      tanggal: "",
+      jam: "",
+      kegiatan: "",
+      tempat: "",
+      gambar: "",
+      waktuKegiatan: "0",
+    },
+    modalEdit: false,
+    indexEdit: -1,
+    dataEdit: {
       tanggal: "",
       jam: "",
       kegiatan: "",
@@ -51,6 +61,10 @@ class App extends Component {
   toggleModalDelHandler = () => {
     this.setState({ modalDel: !this.state.modalDel });
   };
+
+  toggleModalEditHandler = () => {
+    this.setState({ modalEdit: !this.state.modalEdit });
+  };
   //? cara get input user tapi kurang dinamis
   // onKegiatanInput = (e) => {
   //   let dataAddMute = this.state.dataAdd; //data dimutation agar tidak mengubah state langsung
@@ -68,6 +82,12 @@ class App extends Component {
     let dataAddMute = this.state.dataAdd;
     dataAddMute = { ...dataAddMute, [e.target.name]: e.target.value };
     this.setState({ dataAdd: dataAddMute });
+  };
+
+  onEditInputHandler = (e) => {
+    let dataEditMutate = this.state.dataEdit;
+    dataEditMutate = { ...dataEditMutate, [e.target.name]: e.target.value };
+    this.setState({ dataEdit: dataEditMutate });
   };
 
   onAddTodoClick = () => {
@@ -119,6 +139,48 @@ class App extends Component {
 
   // ! delete todo handler finish
 
+  // ! Edit Todo Handler
+  onEditClick = (index) => {
+    let newDataEdit = this.state.todo[index];
+
+    this.setState({
+      indexEdit: index,
+      modalEdit: !this.state.modalEdit,
+      dataEdit: newDataEdit,
+    });
+  };
+
+  onSaveEditClick = () => {
+    let { kegiatan, tempat, tanggal, waktuKegiatan, gambar, jam } =
+      this.state.dataEdit;
+
+    // validasi data untuk memeriksa tidak ada yang boleh ksoosng
+    if (!kegiatan || !tempat || !tanggal || !waktuKegiatan || !gambar || !jam) {
+      alert("tolong isi semua");
+      return; // return ditulis jika tidak mau lagi melanjutkan code dibawah
+      // bisa digantikan juga dengan else
+    }
+    let { indexEdit, todo, dataEdit } = this.state;
+    let todoNew = todo;
+    todoNew.splice(indexEdit, 1, dataEdit);
+
+    let defaultEditData = {
+      tanggal: "",
+      jam: "",
+      kegiatan: "",
+      tempat: "",
+      gambar: "",
+      waktuKegiatan: "0",
+    };
+
+    this.setState({
+      todo: todoNew,
+      dataEdit: defaultEditData,
+      modalEdit: false,
+    });
+  };
+  // !Edit Todo HAndler Finish
+
   renderKegiatan = () => {
     return this.state.todo.map((val, index) => {
       return (
@@ -128,6 +190,7 @@ class App extends Component {
           val={val}
           index={index}
           onDeleteClick={this.onDeleteClick}
+          onEditClick={this.onEditClick}
         />
         // ?  tanpa komponen
         // <tr key={index}>
@@ -151,6 +214,86 @@ class App extends Component {
         // </tr>
       );
     });
+  };
+
+  renderModalEdit = () => {
+    let { indexEdit, dataEdit, todo, modalEdit } = this.state;
+    if (indexEdit < 0) {
+      return;
+    }
+    // let dataEdit = todo[indexEdit];
+
+    return (
+      <Modal isOpen={modalEdit} toggle={this.toggleModalEditHandler}>
+        <ModalHeader toggle={this.toggleModalEditHandler}>
+          Edit Todo {todo[indexEdit].kegiatan}
+        </ModalHeader>
+        <ModalBody>
+          <input
+            type="text"
+            name="kegiatan"
+            onChange={this.onEditInputHandler}
+            value={dataEdit.kegiatan}
+            className="form-control my-1"
+            placeholder="nama Kegiatan"
+          />
+          <input
+            type="date"
+            name="tanggal"
+            value={dataEdit.tanggal}
+            onChange={this.onEditInputHandler}
+            className="form-control my-1"
+          />
+          <input
+            type="time"
+            name="jam"
+            value={dataEdit.jam}
+            onChange={this.onEditInputHandler}
+            className="form-control my-1"
+          />
+          <input
+            type="text"
+            name="tempat"
+            value={dataEdit.tempat}
+            onChange={this.onEditInputHandler}
+            className="form-control my-1"
+            placeholder="tempat"
+          />
+          <input
+            type="text"
+            name="gambar"
+            value={dataEdit.gambar}
+            onChange={this.onEditInputHandler}
+            className="form-control my-1"
+            placeholder="link foto"
+          />
+          <select
+            value={dataEdit.waktuKegiatan}
+            onChange={this.onEditInputHandler}
+            name="waktuKegiatan"
+            className="form-control my-1"
+          >
+            <option value="0" hidden>
+              pilihan jam
+            </option>
+            <option value="2">2 jam</option>
+            <option value="3">3 jam</option>
+            <option value="5">5 jam</option>
+          </select>
+        </ModalBody>
+        <ModalFooter>
+          <button className="btn btn-success" onClick={this.onSaveEditClick}>
+            Save
+          </button>
+          <button
+            className="btn btn-secondary"
+            onClick={this.toggleModalEditHandler}
+          >
+            Cancel
+          </button>
+        </ModalFooter>
+      </Modal>
+    );
   };
 
   render() {
@@ -225,7 +368,6 @@ class App extends Component {
             </button>
           </ModalFooter>
         </Modal>
-
         {/* modal Add  finished*/}
 
         {/* modal Del */}
@@ -253,7 +395,7 @@ class App extends Component {
           </ModalFooter>
         </Modal>
         {/* modal Del Finish */}
-
+        {this.renderModalEdit()}
         <h1 className="mt-4">Todo List</h1>
         <button
           onClick={this.toggleModalHandler}

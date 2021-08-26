@@ -5,7 +5,7 @@ import { AiOutlineEdit } from "react-icons/ai";
 
 
 const TableRow = ( props)=>{
-    let {index,val,onDeleteClick}=props
+    let {index,val,onDeleteClick,onEditClick}=props
 
     const renderTanggalProper = (tanggal) => {
         const event = new Date(tanggal);
@@ -30,7 +30,7 @@ const TableRow = ( props)=>{
         <td style={{ width: "10%" }}>{val.waktuKegiatan} jam </td>
         <td>{val.tempat}</td>
         <td>
-          <button className="btn btn-primary mr-3">
+          <button className="btn btn-primary mr-3" onClick={()=>onEditClick(index)}>
             <AiOutlineEdit /> Edit
           </button>
           <button className="btn btn-danger" onClick={()=>onDeleteClick(index)} >
