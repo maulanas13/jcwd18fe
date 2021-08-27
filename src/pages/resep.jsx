@@ -39,7 +39,7 @@ class Resep extends Component {
     renderRecipes=()=>{
         return this.state.resep.map((val,index)=>{
             return(
-            <div key={index} className="col-md-3 my-2">
+            <div key={index} className="col-md-3 col-6 my-2">
                 <Card onClick={this.onCardClick} className='tinggi ngangkat'>
                     <CardImg top width="100%" src={val.image} alt="Card image cap" />
                     <CardBody>
