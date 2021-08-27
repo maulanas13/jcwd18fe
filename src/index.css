@@ -3,6 +3,15 @@
   padding: 0px;
 }
 
-/* .tinggi {
-  background-color: blue !important;
-} */
+.tinggi {
+  height: 45vh;
+  box-shadow: 10px 10px 34px 0px rgba(201, 201, 201, 0.75);
+  -webkit-box-shadow: 10px 10px 34px 0px rgba(201, 201, 201, 0.75);
+  -moz-box-shadow: 10px 10px 34px 0px rgba(201, 201, 201, 0.75);
+}
+
+.ngangkat:hover {
+  transform: translateY(-10px);
+  cursor: pointer;
+  transition: ease-in-out 100ms;
+}

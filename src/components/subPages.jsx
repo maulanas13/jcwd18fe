@@ -3,7 +3,7 @@ import React, { Component } from "react";
 
 class SubPages extends Component {
     state = {};
-  
+    
     render() {
       console.log(this.props.match.params);
       return (
