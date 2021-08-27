@@ -20,7 +20,7 @@ const TableRow = ( props)=>{
     
     return(
     <tr >
-        <td>{index + 1}</td>
+        <td >{index + 1}</td>
         <td>{renderTanggalProper(val.tanggal)}</td>
         <td style={{ width: "10%" }}>{val.jam}</td>
         <td>{val.kegiatan}</td>

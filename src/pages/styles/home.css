@@ -1,0 +1,12 @@
+/* .tinggi {
+  background-color: red !important;
+} */
+
+.normal {
+  text-decoration: none;
+  color: initial;
+}
+.normal:hover {
+  text-decoration: none;
+  color: initial;
+}
