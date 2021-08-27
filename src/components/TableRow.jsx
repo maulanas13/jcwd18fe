@@ -7,7 +7,7 @@ import {
   } from 'reactstrap';
 import PropTypes from 'prop-types';
 
-const TableRow = ( props)=>{
+const TableRow = (props)=>{
     let {index,val,onDeleteClick}=props
 
     const renderTanggalProper = (tanggal) => {
