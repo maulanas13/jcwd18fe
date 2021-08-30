@@ -26,6 +26,24 @@
       "gambar": "https://img.okezone.com/content/2020/06/28/406/2237678/6-lokasi-sepedaan-di-jakarta-paling-aman-dan-seru-sudah-pernah-coba-hfxpehcCW7.jpg",
       "waktuKegiatan": "3",
       "id": 4
+    },
+    {
+      "tanggal": "2021-09-01",
+      "jam": "14:21",
+      "kegiatan": "vaksin",
+      "tempat": "dsadada",
+      "gambar": "https://img.okezone.com/content/2020/06/28/406/2237678/6-lokasi-sepedaan-di-jakarta-paling-aman-dan-seru-sudah-pernah-coba-hfxpehcCW7.jpg",
+      "waktuKegiatan": "3",
+      "id": 5
+    },
+    {
+      "tanggal": "2021-09-01",
+      "jam": "14:21",
+      "kegiatan": "rebahan",
+      "tempat": "dsadada",
+      "gambar": "https://img.okezone.com/content/2020/06/28/406/2237678/6-lokasi-sepedaan-di-jakarta-paling-aman-dan-seru-sudah-pernah-coba-hfxpehcCW7.jpg",
+      "waktuKegiatan": "3",
+      "id": 6
     }
   ],
   "posts": [

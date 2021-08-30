@@ -15,3 +15,18 @@
   cursor: pointer;
   transition: ease-in-out 100ms;
 }
+
+.form-control {
+  border: lawngreen 2px solid !important;
+}
+
+.form-control:focus {
+  /* outline: rgb(60, 68, 52) !important; */
+  /* border-color: #28a745 !important; */
+  box-shadow: 0 1px 1px rgba(1, 252, 197, 0.075) inset,
+    0 0 8px rgba(12, 238, 133, 0.6) !important;
+}
+
+/* .form-control option {
+  background-color: lawngreen !important;
+} */

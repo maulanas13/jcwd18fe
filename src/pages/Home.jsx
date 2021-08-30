@@ -450,6 +450,9 @@ class Home extends Component {
         >
           Add Todo
         </button>
+        <div>
+          <input type="text" placeholder='search kegiatan' className='form-control'/>
+        </div>
         {
           this.state.loading?
           <div className='mt-2 tinggi d-flex justify-content-center align-items-center' style={{width:'100%'}}>
