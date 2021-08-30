@@ -1,0 +1,63 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "tanggal": "2021-08-25",
+      "jam": "19:00",
+      "kegiatan": "belajar bae",
+      "tempat": "rumah",
+      "waktuKegiatan": 2,
+      "gambar": "https://asset.kompas.com/crops/eljeeuZu6b2-KjeeYETjEvzPR4Y=/0x0:1000x667/750x500/data/photo/2019/11/13/5dcbd2356022a.jpg"
+    },
+    {
+      "id": 2,
+      "tanggal": "2021-08-26",
+      "jam": "10:00",
+      "kegiatan": "kondangin",
+      "tempat": "di luar",
+      "waktuKegiatan": 3,
+      "gambar": "http://assets.kompasiana.com/items/album/2020/01/15/img20181224103046-5e1eca58d541df1b973306f3.jpg?t=o&v=770"
+    },
+    {
+      "tanggal": "2021-09-01",
+      "jam": "14:21",
+      "kegiatan": "sepedaan pagi",
+      "tempat": "dsadada",
+      "gambar": "https://img.okezone.com/content/2020/06/28/406/2237678/6-lokasi-sepedaan-di-jakarta-paling-aman-dan-seru-sudah-pernah-coba-hfxpehcCW7.jpg",
+      "waktuKegiatan": "3",
+      "id": 4
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "title": "harry potter II",
+      "author": "rowling",
+      "id": 3
+    },
+    {
+      "title": "harry potter V",
+      "author": "rowling",
+      "id": 5
+    },
+    {
+      "title": "harry potter VI",
+      "author": "rowling",
+      "id": 6
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

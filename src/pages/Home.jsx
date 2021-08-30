@@ -1,31 +1,12 @@
 import React, { Component } from "react";
-import { Table, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Table, Modal, ModalHeader, ModalBody, ModalFooter, Spinner } from "reactstrap";
 import TableRow from "./../components/TableRow";
 import './styles/home.css'
 import {Link} from 'react-router-dom'
-
+import axios from 'axios'
 class Home extends Component {
   state = {
-    todo: [
-      {
-        tanggal: "2021-08-25",
-        jam: "19:00",
-        kegiatan: "belajar",
-        tempat: "rumah",
-        waktuKegiatan: 2,
-        gambar:
-          "https://asset.kompas.com/crops/eljeeuZu6b2-KjeeYETjEvzPR4Y=/0x0:1000x667/750x500/data/photo/2019/11/13/5dcbd2356022a.jpg",
-      },
-      {
-        tanggal: "2021-08-26",
-        jam: "10:00",
-        kegiatan: "kondangan",
-        tempat: "di luar",
-        waktuKegiatan: 3,
-        gambar:
-          "http://assets.kompasiana.com/items/album/2020/01/15/img20181224103046-5e1eca58d541df1b973306f3.jpg?t=o&v=770",
-      },
-    ],
+    todo: [],
     modalOpen: false,
     modalDel: false,
     indexDel: -1,
@@ -47,13 +28,27 @@ class Home extends Component {
       gambar: "",
       waktuKegiatan: "0",
     },
+    loading:true
   };
   
   // ? list lifecycle method
-  // componnetwillmount > render > componentdidmount  (mounting)
+  //! componnetwillmount > render > componentdidmount  (mounting)
   // trigger didalam fase updating : setState , newProps,forceUpdate() (updating)
-  // componentWillUpdate > render > componentdidUpdate (updating)
-  // componentWillUnMount (unmount)
+  //! componentWillUpdate > render > componentdidUpdate (updating)
+  //! componentWillUnMount (unmount)
+
+  componentDidMount(){
+    axios.get(`http://localhost:5000/todos`)
+    .then((res)=>{
+      // console.log(res.data)
+      this.setState({todo:res.data})
+    }).catch((err)=>{
+      console.log(err)
+    }).finally(()=>{
+      this.setState({loading:false})
+    })
+  }
+
 
   // ! add todo handler started
   toggleModalHandler = () => {
@@ -105,19 +100,32 @@ class Home extends Component {
       // bisa digantikan juga dengan else
     }
 
-    let todoNew = this.state.todo;
-    todoNew.push(this.state.dataAdd);
+    // this.state.dataAdd harus object
+    axios.post(`http://localhost:5000/todos`,this.state.dataAdd)
+    .then((res)=>{
+      console.log(res.data)
+      // refresh data with method get
+      axios.get(`http://localhost:5000/todos`)
+      .then((res1)=>{
+        let defaultAddData = {
+          tanggal: "",
+          jam: "",
+          kegiatan: "",
+          tempat: "",
+          gambar: "",
+          waktuKegiatan: "0",
+        };
+        this.setState({todo:res1.data,  dataAdd: defaultAddData, modalOpen: false });
+      }).catch((err)=>{
+        console.log(err)
+        alert('server error')
+      })
+    }).catch((err)=>{
+      console.log(err)
+      alert('server error')
+    })
+ 
 
-    let defaultAddData = {
-      tanggal: "",
-      jam: "",
-      kegiatan: "",
-      tempat: "",
-      gambar: "",
-      waktuKegiatan: "0",
-    };
-
-    this.setState({ todo: todoNew, dataAdd: defaultAddData, modalOpen: false });
   };
 
   // ! add todo handler finish
@@ -129,15 +137,30 @@ class Home extends Component {
 
   onConfirmDeleteClick = () => {
     let { todo, indexDel } = this.state;
-    let todoNew = todo;
+    let idDelete = todo[indexDel].id
+    
+    axios.delete(`http://localhost:5000/todos/${idDelete}`)
+    .then((res)=>{
+      console.log(res.data) // hasil pasti object kosong = {}
+      // refresh data with method get
+      axios.get(`http://localhost:5000/todos`)
+      .then((res1)=>{
+        this.setState({
+          todo:res1.data,  
+          indexDel: -1,
+          modalDel: !this.state.modalDel, 
+        });
+      }).catch((err)=>{
+        console.log(err)
+        alert('server error')
+      })
+    }).catch((err)=>{
+      console.log(err)
+      alert('server error')
+    })
 
-    todoNew.splice(indexDel, 1);
 
-    this.setState({
-      todo: todoNew,
-      indexDel: -1,
-      modalDel: !this.state.modalDel,
-    });
+
   };
 
   // ! delete todo handler finish
@@ -164,23 +187,41 @@ class Home extends Component {
       // bisa digantikan juga dengan else
     }
     let { indexEdit, todo, dataEdit } = this.state;
-    let todoNew = todo;
-    todoNew.splice(indexEdit, 1, dataEdit);
-
-    let defaultEditData = {
-      tanggal: "",
-      jam: "",
-      kegiatan: "",
-      tempat: "",
-      gambar: "",
-      waktuKegiatan: "0",
-    };
-
-    this.setState({
-      todo: todoNew,
-      dataEdit: defaultEditData,
-      modalEdit: false,
-    });
+  
+    let idEdit = todo[indexEdit].id
+  
+    //? karena data editnya property dibawa semua jadi boleh pake patch atau put untuk update data
+    axios.put(`http://localhost:5000/todos/${idEdit}`,dataEdit)
+    .then((res)=>{
+      console.log(res.data)
+      // refresh data with method get
+      axios.get(`http://localhost:5000/todos`)
+      .then((res1)=>{
+        let defaultEditData = {
+          tanggal: "",
+          jam: "",
+          kegiatan: "",
+          tempat: "",
+          gambar: "",
+          waktuKegiatan: "0",
+        };
+        alert('berhasil ubah data')
+        this.setState({
+          todo: res1.data,
+          dataEdit: defaultEditData,
+          modalEdit: false,
+        });
+        
+      }).catch((err)=>{
+        console.log(err)
+        alert('server error')
+      })
+    }).catch((err)=>{
+      console.log(err)
+      alert('server error')
+    })
+    
+    
   };
   // !Edit Todo HAndler Finish
 
@@ -409,6 +450,12 @@ class Home extends Component {
         >
           Add Todo
         </button>
+        {
+          this.state.loading?
+          <div className='mt-2 tinggi d-flex justify-content-center align-items-center' style={{width:'100%'}}>
+            <Spinner color='primary'/>
+          </div>
+          :
         <Table className="mt-2 tinggi" striped>
           <thead>
             <tr>
@@ -424,6 +471,7 @@ class Home extends Component {
           </thead>
           <tbody>{this.renderKegiatan()}</tbody>
         </Table>
+        }
       </div>
     );
   }
